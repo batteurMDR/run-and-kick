@@ -1,0 +1,23 @@
+body{
+	background-color: #7092DA;
+	font-family: "Ubuntu", sans-serif;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	color: white;
+}
+.blur{
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    opacity: 0.4;
+}
+*{
+	
+	-webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+}

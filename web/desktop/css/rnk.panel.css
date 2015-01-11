@@ -1,0 +1,41 @@
+.panel{
+	display: block;
+}.panel a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	font-size: xx-large;
+	text-align: center;
+	padding: 15px;
+	text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.75);
+}.panel a:hover{
+	color: #00BDFF;
+}.main a:first-child{
+	padding-top: 75px;
+}
+.multi a{
+	display: inline-block;
+	width: 47%;
+	margin: 15px;
+	background-color: #007CFF;
+	padding: 50px 0;
+}
+.multi a:hover{
+	color: white;
+	background-color: #0098DB;
+}
+.opt a{
+	display: inline-block;
+	width: 47%;
+	margin: 15px;
+	background-color: #007CFF;
+	padding: 50px 0;
+}
+.opt a:hover{
+	color: white;
+	background-color: #0098DB;
+}
+.ctrl .title{
+	text-align: center;
+	padding: 15px 0;
+}

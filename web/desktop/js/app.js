@@ -1,0 +1,9 @@
+$(function(){
+	rnk.init.panel(function(){
+		rnk.init.game(function(){
+			$('.load').fadeOut("slow",function(){
+				rnk.panel.main.fadeIn("slow");
+			});
+		});
+	});
+});
