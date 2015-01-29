@@ -1,5 +1,7 @@
 var app = {
 
-	
+	init : function(){
+		
+	}
 	
 }
