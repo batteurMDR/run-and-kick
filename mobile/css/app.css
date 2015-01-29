@@ -2,12 +2,6 @@
 	-webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box; 
     box-sizing: border-box;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 body{
 	font-family: "Sans-Serif",Arial;
@@ -34,6 +28,12 @@ body{
 	margin: 5px 2px;
 	padding: 10px 0; 
 	text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .direction .arrow.up{
 	display: block;
@@ -63,4 +63,26 @@ body{
 	margin: 5px 2px;
 	padding: 10px 0; 
 	text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.username{
+	display: block;
+	position: absolute;
+	top: 0;left: 0;right: 0;bottom: 0;
+	z-index: 2;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	padding: 50px;
+}.username input{
+	display: block;
+	margin: 50px auto 50px auto;
+	width: 70%;
+	height: 25px;
+	line-height: 25px;
 }
