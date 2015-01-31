@@ -2,6 +2,9 @@ var app = {
 
 	socket : null,
 	me : [],
+	jump : false,
+	run : false,
+	direction : 1,
 
 	init : function(){
 		this.socket = io.connect('http://localhost:3426');
@@ -10,7 +13,6 @@ var app = {
 
 	login : function(username){
 		this.me.username = username;
-		console.log(username);
 		this.socket.emit('newUser',{username:username});
 	}
 	

@@ -14,7 +14,6 @@ var events = {
 			var input = that.find('input[name=username]');
 			var username = input.val();
 			input.blur();
-			console.log(username);
 			app.login(username);
 		});
 	},
@@ -23,8 +22,28 @@ var events = {
 		$('.direction').find('.arrow').each(function(){
 			var that = $(this);
 			var direction = that.data('direction');
-			that.click(function(e){
-				e.preventDefault();
+			that.mousedown(function(){
+				switch(direction){
+					case "up":
+						console.log('up');
+						break;
+					case "right":
+						console.log('right 1');
+						break;
+					case "left":
+						console.log('left 1');
+						break;
+					}
+			});
+			that.mouseup(function(){
+				switch(direction){
+					case "right":
+						console.log('right 2');
+						break;
+					case "left":
+						console.log('left 2');
+						break;
+					}
 			});
 		});
 	},
@@ -35,17 +54,22 @@ var events = {
 			var action = that.data('action');
 			that.click(function(e){
 				e.preventDefault();
+				//Le code qui switch l'action et qui defini l'action a faire
 			});
 		});
 	},
 
 	listenSockets : function(){
 		app.socket.on('setId',function(user){
-			console.log(user);
 			if(user.username==app.me.username){
 				app.me.id = user.id;
-				$('.username').hide();
+				$('.username').find('input').each(function(){
+					$(this).hide();
+				});
 			}
+		});
+		app.socket.on('startCtrl',function(){
+			$('.username').hide();
 		});
 	}
 
