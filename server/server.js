@@ -29,9 +29,15 @@ io.sockets.on('connection',function(socket){
 			}
 		}
 	});
+	
+	socket.on('disconnect',function(){
+		if(!me){
+			return false;
+		}
+		users.splice(me.id,1);
+		io.sockets.emit('remUser',me);
+	});
 
 	//Listen les déplacements
-
-	
 
 });
