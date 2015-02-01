@@ -6,6 +6,7 @@ httpServer.listen('3426');
 var io = require('socket.io').listen(httpServer);
 
 var users = [];
+var displays = [];
 var play = false;
 
 io.sockets.on('connection',function(socket){
@@ -39,5 +40,13 @@ io.sockets.on('connection',function(socket){
 	});
 
 	//Listen les déplacements
+
+	socket.on('run',function(user){
+
+	});
+
+	socket.on('jump',function(user){
+		
+	});
 
 });
