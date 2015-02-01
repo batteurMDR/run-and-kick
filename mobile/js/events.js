@@ -25,13 +25,10 @@ var events = {
 			that.mousedown(function(){
 				switch(direction){
 					case "up":
-						console.log('up');
 						break;
 					case "right":
-						console.log('right 1');
 						break;
 					case "left":
-						console.log('left 1');
 						break;
 					}
 			});
