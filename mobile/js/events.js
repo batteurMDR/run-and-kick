@@ -19,13 +19,14 @@ var events = {
 	},
 
 	listenDirection : function(){
+
+			$('body').hammer().on('swipe',function(e){
+				app.socket.emit('walk',{user:app.me.id,ev:e});
+			});
+		/**
 		$('.direction').find('.arrow').each(function(){
 			var that = $(this);
 			var direction = that.data('direction');
-			that.hammer().on('swipe',function(e){
-				app.socket.emit('walk',{user:app.me.id,ev:e});
-			});
-			/**
 			that.click(function(e){
 				e.preventDefault();
 				switch(direction){
@@ -52,8 +53,8 @@ var events = {
 						break;
 					}
 			});
-			*/
 		});
+		*/
 	},
 
 	listenActions : function(){

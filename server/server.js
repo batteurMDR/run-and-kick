@@ -22,7 +22,7 @@ io.sockets.on('connection',function(socket){
 			users.push(me);
 			socket.emit('setId',me);
 			console.log("welcome "+me.username.red);
-			if(users.length>=2){
+			if(users.length>=1){
 				play = true;
 				io.sockets.emit('startCtrl');
 				//emit du startDsp (start display)
