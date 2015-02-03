@@ -20,8 +20,15 @@ var events = {
 
 	listenDirection : function(){
 
-			$('body').hammer().on('swipe',function(e){
-				app.socket.emit('walk',{user:app.me.id,ev:e});
+			$('body').hammer().on('swiperight',function(e){
+				console.log("right");
+				console.log(e);
+			});
+
+
+			$('body').hammer().on('swipeleft',function(e){
+				console.log("left");
+				console.log(e);
 			});
 		/**
 		$('.direction').find('.arrow').each(function(){
