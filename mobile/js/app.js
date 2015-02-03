@@ -3,7 +3,7 @@ var app = {
 	socket : null,
 	me : [],
 	jump : false,
-	run : false,
+	walk : false,
 	direction : 1,
 
 	init : function(){

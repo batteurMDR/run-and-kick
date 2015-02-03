@@ -41,8 +41,9 @@ io.sockets.on('connection',function(socket){
 
 	//Listen les déplacements
 
-	socket.on('run',function(user){
-
+	socket.on('walk',function(user){
+		console.log(user.user);
+		console.log(user.ev);
 	});
 
 	socket.on('jump',function(user){

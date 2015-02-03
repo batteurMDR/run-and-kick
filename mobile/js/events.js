@@ -22,11 +22,21 @@ var events = {
 		$('.direction').find('.arrow').each(function(){
 			var that = $(this);
 			var direction = that.data('direction');
-			that.mousedown(function(){
+			that.hammer().on('swipe',function(e){
+				app.socket.emit('walk',{user:app.me.id,ev:e});
+			});
+			/**
+			that.click(function(e){
+				e.preventDefault();
 				switch(direction){
 					case "up":
 						break;
 					case "right":
+						if(app.walk&&app.direction==1){
+							break;
+						}
+						console.log(app.me);
+						app.socket.emit('walk',{user:app.me.id});
 						break;
 					case "left":
 						break;
@@ -42,6 +52,7 @@ var events = {
 						break;
 					}
 			});
+			*/
 		});
 	},
 
