@@ -21,13 +21,22 @@ var events = {
 	listenDirection : function(){
 
 			$('body').hammer().on('swiperight',function(e){
-				console.log("right");
+				// Reculer
 				console.log(e);
 			});
 
-
 			$('body').hammer().on('swipeleft',function(e){
-				console.log("left");
+				// Avancer
+				console.log(e);
+			});
+
+			$('body').hammer().on('swipeup',function(e){
+				// Sauter
+				console.log(e);
+			});
+
+			$('body').hammer().on('tap',function(e){
+				// Attaquer
 				console.log(e);
 			});
 		/**
