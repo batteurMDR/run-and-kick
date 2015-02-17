@@ -22,20 +22,25 @@ var events = {
 
 			$('body').hammer().on('swiperight',function(e){
 				// Reculer
-				console.log(e);
+				console.log(e.gesture.distance);
 			});
 
 			$('body').hammer().on('swipeleft',function(e){
 				// Avancer
-				console.log(e);
+				console.log(e.gesture.distance);
 			});
 
 			$('body').hammer().on('swipeup',function(e){
 				// Sauter
+				console.log(e.gesture.distance);
+			});
+
+			$('body').hammer().on('doubletap',function(e){
+				// Attaquer
 				console.log(e);
 			});
 
-			$('body').hammer().on('tap',function(e){
+			$('body').hammer().on('stap',function(e){
 				// Attaquer
 				console.log(e);
 			});
