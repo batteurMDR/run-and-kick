@@ -11,6 +11,11 @@ var events = {
 		app.socket.on('countdown',function(time){
 			$('.countdown').show().text(time.time);
 		});
+		app.socket.on('newUser',function(user){
+			console.log(user);
+			app.users[user.id] = new player(user);
+			console.log(app.users);
+		});
 	}
 
 }
