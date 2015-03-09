@@ -96,6 +96,9 @@ var events = {
 		app.socket.on('startCtrl',function(){
 			$('.username').hide();
 		});
+		app.socket.on('countdown',function(time){
+			$('.countdown').show().text(time.time);
+		});
 	}
 
 }
