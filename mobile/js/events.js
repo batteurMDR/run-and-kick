@@ -22,27 +22,22 @@ var events = {
 
 			$('body').hammer().on('swiperight',function(e){
 				// Reculer
-				console.log(e.gesture.distance);
+				app.socket.emit('rearward',{id:app.me.id,coeff:e.gesture.distance});
 			});
 
 			$('body').hammer().on('swipeleft',function(e){
 				// Avancer
-				console.log(e.gesture.distance);
-			});
-
-			$('body').hammer().on('swipeup',function(e){
-				// Sauter
-				console.log(e.gesture.distance);
+				app.socket.emit('forward',{id:app.me.id,coeff:e.gesture.distance});
 			});
 
 			$('body').hammer().on('doubletap',function(e){
 				// Attaquer
-				console.log(e);
+				app.socket.emit('jump',{id:app.me.id});
 			});
 
-			$('body').hammer().on('stap',function(e){
+			$('body').hammer().on('tap',function(e){
 				// Attaquer
-				console.log(e);
+				app.socket.emit('attack',{id:app.me.id});
 			});
 		/**
 		$('.direction').find('.arrow').each(function(){

@@ -8,6 +8,7 @@ var io = require('socket.io').listen(httpServer);
 var users = [];
 var displays = [];
 var play = false;
+var speed = 0.1;
 
 io.sockets.on('connection',function(socket){
 
@@ -18,6 +19,8 @@ io.sockets.on('connection',function(socket){
 	socket.on('newUser',function(user){
 		if(!play){
 			user.id = users.length;
+			user.x  = 0;
+			user.y  = 0;
 			me = user;
 			users.push(me);
 			socket.emit('setId',me);
@@ -41,13 +44,24 @@ io.sockets.on('connection',function(socket){
 
 	//Listen les déplacements
 
-	socket.on('walk',function(user){
-		console.log(user.user);
-		console.log(user.ev);
+	socket.on('rearward',function(e){
+		users[e.id].x = Math.round(users[e.id].x - (e.coeff*speed));
+		console.log(users[e.id]);
 	});
 
-	socket.on('jump',function(user){
-		
+	socket.on('forward',function(e){
+		users[e.id]["x"] = Math.round(users[e.id]["x"] + (e.coeff*speed));
+		console.log(users[e.id]);
+	});
+
+	socket.on('attack',function(e){
+		console.log(users[e.id]);
+		console.log(e);
+	});
+
+	socket.on('jump',function(e){
+		console.log(users[e.id]);
+		console.log(e);
 	});
 
 });
