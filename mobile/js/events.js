@@ -3,7 +3,6 @@ var events = {
 	init : function(){
 		this.listenLogin();
 		this.listenDirection();
-		this.listenActions();
 		this.listenSockets();
 	},
 
@@ -71,17 +70,6 @@ var events = {
 			});
 		});
 		*/
-	},
-
-	listenActions : function(){
-		$('.actions').find('.action').each(function(){
-			var that = $(this);
-			var action = that.data('action');
-			that.click(function(e){
-				e.preventDefault();
-				//Le code qui switch l'action et qui defini l'action a faire
-			});
-		});
 	},
 
 	listenSockets : function(){
