@@ -4,7 +4,7 @@ var bespoke = require('bespoke'),
   keys = require('bespoke-keys'),
   touch = require('bespoke-touch'),
   bullets = require('bespoke-bullets'),
-  scale = require('bespoke-scale'),
+  backdrop = require('bespoke-backdrop'),
   hash = require('bespoke-hash'),
   progress = require('bespoke-progress');
 
@@ -14,7 +14,7 @@ bespoke.from('article', [
   keys(),
   touch(),
   bullets('li, .bullet'),
-  scale(),
+  backdrop(),
   hash(),
   progress()
 ]);
