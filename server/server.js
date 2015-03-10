@@ -26,7 +26,7 @@ io.sockets.on('connection',function(socket){
 			socket.emit('setId',me);
 			io.sockets.emit('newUser',me);
 			console.log("welcome "+me.username.red);
-			if(users.length>=2){
+			if(users.length>=1){
 				var count = 3;
 				var countdown = setInterval(function(){
 					io.sockets.emit('countdown',{time:count});
