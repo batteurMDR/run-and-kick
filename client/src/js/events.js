@@ -18,6 +18,10 @@ var events = {
 		});
 		app.socket.on('userRearward',function(user){
 			console.log(user);
+
+		});
+		app.socket.on('userForward',function(user){
+			console.log(user);
 			
 		});
 	}
