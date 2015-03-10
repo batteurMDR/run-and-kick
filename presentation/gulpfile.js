@@ -30,7 +30,14 @@ gulp.task('js', ['clean:js'], function() {
 gulp.task('html', ['clean:html'], function() {
   return gulp.src('src/index.jade')
     .pipe(isDist ? through() : plumber())
-    .pipe(jade({ pretty: true }))
+    .pipe(jade({ 
+      pretty: true,
+      filters:{
+        escape:function(block){
+          return require('html-strings').escape(block);
+        }
+      }
+    }))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
