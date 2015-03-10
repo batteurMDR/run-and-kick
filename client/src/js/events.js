@@ -16,6 +16,10 @@ var events = {
 			app.users[user.id] = new player(user);
 			console.log(app.users);
 		});
+		app.socket.on('userRearward',function(user){
+			console.log(user);
+			
+		});
 	}
 
 }

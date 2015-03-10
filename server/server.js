@@ -59,14 +59,18 @@ io.sockets.on('connection',function(socket){
 	socket.on('rearward',function(e){
 		if(play){
 			users[e.id].x = Math.round(users[e.id].x - (e.coeff*speed));
-			console.log(users[e.id]);
+			me.x = users[e.id].x;
+			io.sockets.emit('userRearward',me);
+			console.log(me);
 		}
 	});
 
 	socket.on('forward',function(e){
 		if(play){
 			users[e.id].x = Math.round(users[e.id].x + (e.coeff*speed));
-			console.log(users[e.id]);
+			me.x = users[e.id].x;
+			io.sockets.emit('userForward',me);
+			console.log(me);
 		}
 	});
 
