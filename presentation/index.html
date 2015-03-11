@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Run & Kick</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section data-bespoke-hash="run-kick">
+        <h1 class="bullet">Run & Kick</h1>
+        <p class="bullet name">Louis Benoist--Foucher - Pawel Dziurla - Rémi Onyszkiewicz</p><em class="bullet">Elèves de secondes année 2014 - 2015</em>
+      </section>
+      <section data-bespoke-hash="our-game">
+        <h2 class="bullet">Notre jeu</h2>
+        <ul>
+          <li>Votre but est d'atteindre l'objectif en premier </li>
+          <li>en évitant les attaque des adversaires</li>
+        </ul>
+      </section>
+      <section data-bespoke-hash="technos">
+        <h3 class="bullet">Technologies</h3>
+        <ul>
+          <li>HTML </li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>JQuery</li>
+          <li>NodeJS</li>
+          <li>Socket.IO</li>
+          <li>Node-WebKit</li>
+          <li>BespokeJS</li>
+          <li>Photoshop</li>
+        </ul>
+      </section>
+      <section data-bespoke-hash="roles">
+        <h4 class="bullet">Rôles</h4>
+        <ul>
+          <li>Pawel Dziurla : Graphiste</li>
+          <li>Rémi Onyszkiewicz : Game designer</li>
+          <li>Louis Benoist--Foucher : Développeur</li>
+        </ul>
+      </section>
+      <section data-bespoke-hash="code">
+        <h5 class="bullet">Code</h5>
+        <pre class="bullet"><code class="language-javascript">// On écoute le tactile du téléphone, et on envoi au serveur
+$('body').hammer().on('swipeleft',function(e){
+  app.socket.emit('forward',{id:app.me.id,coeff:e.gesture.distance});
+});</code></pre>
+        <pre class="bullet"><code class="language-css">.username{
+  display: block;
+  position: absolute;
+}
+</code></pre>
+      </section>
+      <section data-bespoke-hash="img" class="nozoom">
+        <h6 class="bullet">Image</h6><img src="images/pascal.png" alt="Pascal" class="pascal">
+      </section>
+      <section data-bespoke-hash="thank">
+        <h1 class="bullet">Merci</h1>
+        <p class="bullet">Et maintenant à vous de jouez</p>
+      </section>
+      <section data-bespoke-hash="how-to">
+        <h2 class="bullet">Comment jouer ?</h2>
+        <ul>
+          <li>Connectez votre smartphone en wi-fi au réseau : Run&Kick</li>
+          <li>Ouvrez votre navigateur internet</li>
+          <li>Rendez-vous à l'adresse : 192.168.1.2</li>
+          <li>Entrez un pseudo et c'est parti!</li>
+        </ul>
+      </section>
+      <section data-bespoke-hash="finish"></section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
