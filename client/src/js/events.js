@@ -12,17 +12,17 @@ var events = {
 			$('.countdown').show().text(time.time);
 		});
 		app.socket.on('newUser',function(user){
-			console.log(user);
 			app.users[user.id] = new player(user);
-			console.log(app.users);
+			app.users[user.id].init();
 		});
 		app.socket.on('userRearward',function(user){
-			console.log(user);
-
+			app.users[user.id].rearward(user.coeff);
 		});
 		app.socket.on('userForward',function(user){
-			console.log(user);
-			
+			app.users[user.id].forward(user.coeff);
+		});
+		app.socket.on('disconnect', function () {
+		  	alert('Erreur, connexion avec la socket perdu');
 		});
 	}
 

@@ -87,6 +87,9 @@ var events = {
 		app.socket.on('countdown',function(time){
 			$('.countdown').show().text(time.time);
 		});
+		app.socket.on('disconnect', function () {
+		  	alert('Erreur, connexion avec la socket perdu');
+		});
 	}
 
 }

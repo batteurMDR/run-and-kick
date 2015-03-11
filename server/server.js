@@ -8,7 +8,6 @@ var io = require('socket.io').listen(httpServer);
 var users = [];
 var displays = [];
 var play = false;
-var speed = 0.1;
 
 io.sockets.on('connection',function(socket){
 
@@ -19,8 +18,6 @@ io.sockets.on('connection',function(socket){
 	socket.on('newUser',function(user){
 		if(!play){
 			user.id = users.length;
-			user.x  = 0;
-			user.y  = 0;
 			me = user;
 			users.push(me);
 			socket.emit('setId',me);
@@ -58,19 +55,13 @@ io.sockets.on('connection',function(socket){
 
 	socket.on('rearward',function(e){
 		if(play){
-			users[e.id].x = Math.round(users[e.id].x - (e.coeff*speed));
-			me.x = users[e.id].x;
-			io.sockets.emit('userRearward',me);
-			console.log(me);
+			io.sockets.emit('userRearward',e);
 		}
 	});
 
 	socket.on('forward',function(e){
 		if(play){
-			users[e.id].x = Math.round(users[e.id].x + (e.coeff*speed));
-			me.x = users[e.id].x;
-			io.sockets.emit('userForward',me);
-			console.log(me);
+			io.sockets.emit('userForward',e);
 		}
 	});
 

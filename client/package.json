@@ -1,0 +1,9 @@
+{
+  	"name": "Run&Kick",
+  	"main": "src/index.html", 
+  	"window": {
+      "toolbar": false,
+      "frame"  : false,
+      "fullscreen":true
+  	}
+}
