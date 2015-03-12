@@ -16,10 +16,6 @@ function player(user){
 		this.$perso = $('.'+this.id);
 	}
 
-	this.jump = function(){
-
-	}
-
 	this.respawn = function(){
 		this.last = -1;
 		this.x = 5;
@@ -38,6 +34,38 @@ function player(user){
 		this.$perso.animate({left:(x-150)},500);
 		this.$perso.animate({top:(screen.height+310)});
 		this.respawn();
+	}
+
+	this.jump = function(){
+		var x = (this.x + 200)*this.direction;
+		var y = 100;
+		if(this.direction==1){
+			if(x>app.map[this.last+1][0]){
+				x = (app.map[this.last+2][1]+43);
+			}
+		}else{
+			if(x<app.map[this.last+1][0]){
+				console.log(app.map[this.last+1]);
+				console.log(app.map[this.last+2]);
+				if(app.map[this.last+1][1]!=app.map[this.last+2][1]){
+					x = this.x;
+					console.log("if");
+				}else{
+					x = (app.map[this.last+2][0]-105);
+					this.last = this.last+2;
+				}
+			}
+		}
+		this.x = x;
+		this.$perso.animate({left:this.x},{duration:400,queue:false});
+		this.$perso.animate({top:(this.y - (y/4))},50);
+		this.$perso.animate({top:(this.y - (y/4)*2)},50);
+		this.$perso.animate({top:(this.y - (y/4)*3)},50);
+		this.$perso.animate({top:(this.y - y)},50);
+		this.$perso.animate({top:(this.y - (y/4)*3)},50);
+		this.$perso.animate({top:(this.y - (y/4)*2)},50);
+		this.$perso.animate({top:(this.y - (y/4))},50);
+		this.$perso.animate({top:this.y},50);
 	}
 
 	this.forward = function(coeff){
@@ -98,7 +126,10 @@ function player(user){
 							return;
 						}
 					}else if(x<=0){
-						//gagner
+						if((this.y+300)==app.map[i+1][1]){
+							this.win();
+							return;
+						}
 						return;
 					}
 				};
@@ -112,11 +143,7 @@ function player(user){
 		
 	}
 
-	this.loose = function(){
-
-	}
-
 	this.win = function(){
-
+		alert('gagner maggle');
 	}
 }

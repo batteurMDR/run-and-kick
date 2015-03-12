@@ -29,13 +29,13 @@ var events = {
 				app.socket.emit('forward',{id:app.me.id,coeff:e.gesture.distance});
 			});
 
-			$('body').hammer().on('doubletap',function(e){
+			$('body').hammer().on('tap',function(e){
 				// Attaquer
 				app.socket.emit('jump',{id:app.me.id});
 			});
 
-			$('body').hammer().on('tap',function(e){
-				// Attaquer
+			$('.attack').click(function(e){
+				e.preventDefault();
 				app.socket.emit('attack',{id:app.me.id});
 			});
 		/**

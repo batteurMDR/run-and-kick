@@ -74,8 +74,7 @@ io.sockets.on('connection',function(socket){
 
 	socket.on('jump',function(e){
 		if(play){
-			console.log(users[e.id]);
-			console.log(e);
+			io.sockets.emit('userJump',e);
 		}
 	});
 

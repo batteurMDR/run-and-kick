@@ -21,6 +21,9 @@ var events = {
 		app.socket.on('userForward',function(user){
 			app.users[user.id].forward(user.coeff);
 		});
+		app.socket.on('userJump',function(user){
+			app.users[user.id].jump();
+		});
 		app.socket.on('disconnect', function () {
 		  	alert('Erreur, connexion avec la socket perdu');
 		});

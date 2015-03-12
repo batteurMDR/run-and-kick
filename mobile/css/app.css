@@ -33,3 +33,12 @@ body{
 	text-align:center;
 	font-size: xx-large;
 }
+
+.attack{
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	background-color: #fff;
+	margin: 50px auto;
+}
