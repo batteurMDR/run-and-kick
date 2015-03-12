@@ -19,17 +19,17 @@ var events = {
 
 	listenDirection : function(){
 
-			$('body').hammer().on('swiperight',function(e){
+			$('#screen').hammer().on('swiperight',function(e){
 				// Reculer
 				app.socket.emit('rearward',{id:app.me.id,coeff:e.gesture.distance});
 			});
 
-			$('body').hammer().on('swipeleft',function(e){
+			$('#screen').hammer().on('swipeleft',function(e){
 				// Avancer
 				app.socket.emit('forward',{id:app.me.id,coeff:e.gesture.distance});
 			});
 
-			$('body').hammer().on('tap',function(e){
+			$('#screen').hammer().on('tap',function(e){
 				// Attaquer
 				app.socket.emit('jump',{id:app.me.id});
 			});
@@ -87,8 +87,20 @@ var events = {
 		app.socket.on('countdown',function(time){
 			$('.countdown').show().text(time.time);
 		});
-		app.socket.on('disconnect', function () {
+		app.socket.on('disconnect',function(){
 		  	alert('Erreur, connexion avec la socket perdu');
+		});
+		app.socket.on('userWin',function(id){
+			$('.countdown').text("");
+			$('.username').show();
+		  	if(id==app.me.id){
+				$('.countdown').text("Gagner");
+		  	}else{
+				$('.countdown').text("Perdu");
+		  	}
+			window.setTimeout(function(){
+				window.location.reload();
+			},15000);
 		});
 	}
 

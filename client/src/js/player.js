@@ -45,11 +45,8 @@ function player(user){
 			}
 		}else{
 			if(x<app.map[this.last+1][0]){
-				console.log(app.map[this.last+1]);
-				console.log(app.map[this.last+2]);
 				if(app.map[this.last+1][1]!=app.map[this.last+2][1]){
 					x = this.x;
-					console.log("if");
 				}else{
 					x = (app.map[this.last+2][0]-105);
 					this.last = this.last+2;
@@ -128,9 +125,10 @@ function player(user){
 					}else if(x<=0){
 						if((this.y+300)==app.map[i+1][1]){
 							this.win();
+							this.play = false;
 							return;
 						}
-						return;
+						x = 0;
 					}
 				};
 				this.x = x;
@@ -144,6 +142,6 @@ function player(user){
 	}
 
 	this.win = function(){
-		alert('gagner maggle');
+		app.socket.emit('userWin',{id:this.id});
 	}
 }

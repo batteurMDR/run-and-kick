@@ -6,12 +6,12 @@ httpServer.listen('3426');
 var io = require('socket.io').listen(httpServer);
 
 var users = [];
-var displays = [];
 var play = false;
+var winner = false;
 
 io.sockets.on('connection',function(socket){
 
-	console.log("new user".yellow);
+	console.log("new user : ".yellow+socket.handshake.address.red);
 
 	var me = false;
 
@@ -49,6 +49,23 @@ io.sockets.on('connection',function(socket){
 		}
 		users.splice(me.id,1);
 		io.sockets.emit('remUser',me);
+	});
+
+	socket.on('userWin',function(user){
+		console.log("User win".green);
+		if(play&&!winner){
+			winner = true;
+			play = false;
+			console.log("Stop the game".green);
+			console.log(users[user.id].username.red+" is the winner");
+			io.sockets.emit('userWin',user.id);
+			setTimeout(function(){
+				console.log("Restart the server".red);
+				winner = false;
+				users = [];
+				console.log("Server is OK !".blue);
+			},5000);
+		}
 	});
 
 	//Listen les déplacements
