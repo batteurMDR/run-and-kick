@@ -1,0 +1,11 @@
+{
+  	"name": "Run & Kick",
+  	"main": "index.html", 
+  	"window": {
+  		"width" : 1000,
+  		"height" : 750,
+      	"toolbar": false,
+      	"frame"  : false,
+      	"fullscreen" : true
+  	}
+}
