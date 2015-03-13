@@ -8,6 +8,7 @@ var io = require('socket.io').listen(httpServer);
 var users = [];
 var play = false;
 var winner = false;
+var color  = ["DF4949","EFC94C","382B66","5A8165"];
 
 io.sockets.on('connection',function(socket){
 
@@ -18,6 +19,7 @@ io.sockets.on('connection',function(socket){
 	socket.on('newUser',function(user){
 		if(!play){
 			user.id = users.length;
+			user.color = color[user.id];
 			me = user;
 			users.push(me);
 			socket.emit('setId',me);
@@ -84,8 +86,7 @@ io.sockets.on('connection',function(socket){
 
 	socket.on('attack',function(e){
 		if(play){
-			console.log(users[e.id]);
-			console.log(e);
+			io.sockets.emit('userAttack',e);
 		}
 	});
 

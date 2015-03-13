@@ -24,13 +24,16 @@ var events = {
 		app.socket.on('userJump',function(user){
 			app.users[user.id].jump();
 		});
+		app.socket.on('userAttack',function(user){
+			app.users[user.id].attack();
+		});
 		app.socket.on('disconnect',function(){
 		  	alert('Erreur, connexion avec la socket perdu');
 		});
 		app.socket.on('userWin',function(id){
 			$('.countdown').text("");
 			$('.pause').show();
-			$('.countdown').text(app.users[id].username+" est le gagnan");
+			$('.countdown').text(app.users[id].username+" est le gagnant");
 			setTimeout(function(){
 				location.reload();
 			},15000);

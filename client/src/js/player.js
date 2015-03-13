@@ -2,6 +2,7 @@ function player(user){
 
 	this.id = user.id;
 	this.username = user.username;
+	this.color = user.color;
 	this.x = 5;
 	this.y = 145;
 	this.direction = 1;
@@ -9,6 +10,7 @@ function player(user){
 	this.alt = 0;
 	this.last = -1;
 	this.play = true;
+	this.balls = [];
 
 	this.init = function(){
 		var perso = $('<div/>',{class:"decor-perso "+this.id});
@@ -25,6 +27,7 @@ function player(user){
 		var that = this;
 		setTimeout(function(){
 			that.$perso.css({top:"145px",left:"5px"});
+			that.$perso.show();
 			that.play = true;
 		},2500);
 	}
@@ -78,6 +81,9 @@ function player(user){
 			}else{
 				var x = Math.round(this.x + (coeff*app.speed));
 				for(var i=0;i<app.map.length;i++){
+					if(this.last>=3){
+						return;
+					}
 					if((x+105)>=app.map[i][0]&&i>this.last&&i<this.last+2){
 						x = app.map[i][0];
 						if(app.map[i][1]>app.map[i+1][1]){
@@ -112,6 +118,9 @@ function player(user){
 			}else{
 				var x = Math.round(this.x - (coeff*app.speed));
 				for(var i=0;i<app.map.length;i++){
+					if(this.last<3){
+						return;
+					}
 					if(x<=app.map[i][0]&&i>this.last&&i<this.last+2){
 						x = app.map[i][0];
 						if(app.map[i][1]<app.map[i+1][1]){
@@ -138,7 +147,13 @@ function player(user){
 	}
 
 	this.attack = function(){
-		
+		if(this.direction==1){
+			var Ball = new ball({user:this.id,color:this.color,x:(this.x+148),y:(this.y+125),direction:this.direction});
+		}else{
+			var Ball = new ball({user:this.id,color:this.color,x:(this.x-50),y:(this.y+125),direction:this.direction});
+		}
+		Ball.init();
+		this.balls.push(Ball);
 	}
 
 	this.win = function(){

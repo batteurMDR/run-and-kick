@@ -34,10 +34,38 @@
 }.decor-perso{
 	width: 148px;
 	height: 300px;
-	background: url("../img/pascal.png") 0 0 no-repeat;
+	background: url("../img/pascal.png") no-repeat;
 	position: absolute;
 	top: 145px;
 	left: 5px;
+	animation: perso .5s steps(4) infinite;
+	-webkit-animation: perso 1s steps(4) infinite;
+}.decor-ball{
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	border-radius: 50px;
+	position: absolute;
+	top: 145px;
+	left: 5px;
+}
+
+@keyframes perso{
+	from{
+		background-position-x: 0;
+	}
+	to{
+		background-position-x: -576px; 
+	}
+}
+
+@-webkit-keyframes perso{
+	from{
+		background-position-x: 0;
+	}
+	to{
+		background-position-x: -576px; 
+	}
 }
 
 .pause{
